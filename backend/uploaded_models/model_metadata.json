@@ -1,0 +1,46 @@
+{
+    "regression_features": [
+        "precipitation_sum",
+        "rain_sum",
+        "soil_moisture_0_to_7cm_mean",
+        "soil_moisture_7_to_28cm_mean",
+        "temperature_2m_max",
+        "wind_speed_10m_max",
+        "rain_24h",
+        "rain_48h",
+        "rain_72h",
+        "soil_saturation_index",
+        "latitude",
+        "longitude",
+        "year",
+        "month"
+    ],
+    "classification_features": [
+        "precipitation_sum",
+        "rain_sum",
+        "soil_moisture_0_to_7cm_mean",
+        "soil_moisture_7_to_28cm_mean",
+        "temperature_2m_max",
+        "wind_speed_10m_max",
+        "rain_24h",
+        "rain_48h",
+        "rain_72h",
+        "soil_saturation_index",
+        "latitude",
+        "longitude",
+        "year",
+        "month"
+    ],
+    "cluster_features": [
+        "rain_24h",
+        "rain_48h",
+        "rain_72h",
+        "soil_moisture_0_to_7cm_mean",
+        "soil_moisture_7_to_28cm_mean",
+        "temperature_2m_max",
+        "wind_speed_10m_max",
+        "soil_saturation_index"
+    ],
+    "best_regression_model": "Random Forest",
+    "best_classification_model": "XGBoost"
+}
