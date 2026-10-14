@@ -49,12 +49,12 @@ export default function AnalyticsDashboard({ models }) {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between pb-2 border-b border-white/10">
+      <div className="flex items-center justify-between pb-2 border-b border-black/10">
         <div>
-          <h3 className="text-xl font-bold text-white tracking-wide">Advanced Analytics & Diagnostics</h3>
-          <p className="text-xs text-slate-400">Deep-dive visualizations for prediction distributions, feature influence, and residual error analysis.</p>
+          <h3 className="text-xl font-bold text-black tracking-wide">Advanced Analytics & Diagnostics</h3>
+          <p className="text-xs text-gray-600">Deep-dive visualizations for prediction distributions, feature influence, and residual error analysis.</p>
         </div>
-        <span className="text-xs font-mono text-[#FFD600] bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+        <span className="text-xs font-mono text-black bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
           Target: {primaryModel?.name}
         </span>
       </div>
@@ -64,10 +64,10 @@ export default function AnalyticsDashboard({ models }) {
         {/* Prediction Score Distribution */}
         <div className="lg:col-span-6 glass-panel p-5 rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
-              <Activity size={18} className="text-[#2F5BFF]" /> Prediction Risk Distribution Histogram
+            <h4 className="text-sm font-bold text-black tracking-wide flex items-center gap-2">
+              <Activity size={18} className="text-black" /> Prediction Risk Distribution Histogram
             </h4>
-            <span className="text-xs font-mono text-slate-400">N = 10,562</span>
+            <span className="text-xs font-mono text-gray-600">N = 10,562</span>
           </div>
 
           <div className="h-64 w-full">
@@ -96,10 +96,10 @@ export default function AnalyticsDashboard({ models }) {
         {/* Global Feature Importance Ranking */}
         <div className="lg:col-span-6 glass-panel p-5 rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
-              <BarChart2 size={18} className="text-[#FFD600]" /> Feature Importance Ranking
+            <h4 className="text-sm font-bold text-black tracking-wide flex items-center gap-2">
+              <BarChart2 size={18} className="text-black" /> Feature Importance Ranking
             </h4>
-            <span className="text-xs font-mono text-slate-400">Gini Impurity</span>
+            <span className="text-xs font-mono text-gray-600">Gini Impurity</span>
           </div>
 
           <div className="h-64 w-full">
@@ -123,10 +123,10 @@ export default function AnalyticsDashboard({ models }) {
         {/* Actual vs Predicted Scatter */}
         <div className="lg:col-span-6 glass-panel p-5 rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
+            <h4 className="text-sm font-bold text-black tracking-wide flex items-center gap-2">
               <TrendingUp size={18} className="text-emerald-400" /> Actual vs Predicted Scatter Plot
             </h4>
-            <span className="text-xs font-mono text-blue-400">R² = {primaryModel?.metrics?.test_r2}</span>
+            <span className="text-xs font-mono text-black">R² = {primaryModel?.metrics?.test_r2}</span>
           </div>
 
           <div className="h-64 w-full">
@@ -148,10 +148,10 @@ export default function AnalyticsDashboard({ models }) {
         {/* Residual Plot */}
         <div className="lg:col-span-6 glass-panel p-5 rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
+            <h4 className="text-sm font-bold text-black tracking-wide flex items-center gap-2">
               <Layers size={18} className="text-purple-400" /> Residual Plot (Errors vs Fitted)
             </h4>
-            <span className="text-xs font-mono text-slate-400">Mean Zero Line</span>
+            <span className="text-xs font-mono text-gray-600">Mean Zero Line</span>
           </div>
 
           <div className="h-64 w-full">
@@ -173,3 +173,5 @@ export default function AnalyticsDashboard({ models }) {
     </div>
   );
 }
+
+

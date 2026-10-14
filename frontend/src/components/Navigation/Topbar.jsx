@@ -14,7 +14,7 @@ export default function Topbar({ activeSection, setActiveSection, collapsed, set
   };
 
   return (
-    <header className={`sticky top-0 z-30 h-16 bg-slate-950/70 backdrop-blur-xl border-b border-white/10 transition-all duration-300 ${
+    <header className={`sticky top-0 z-30 h-16 bg-white backdrop-blur-xl border-b border-black/10 transition-all duration-300 ${
       collapsed ? 'md:ml-20' : 'md:ml-64'
     }`}>
       <div className="h-full px-4 md:px-8 flex items-center justify-between gap-4">
@@ -22,19 +22,19 @@ export default function Topbar({ activeSection, setActiveSection, collapsed, set
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsMobileOpen(true)}
-            className="md:hidden p-2 rounded-lg bg-slate-800/80 text-slate-300 hover:text-white border border-white/10"
+            className="md:hidden p-2 rounded-lg bg-white text-black hover:text-black border border-black/10"
           >
             <Menu size={20} />
           </button>
 
           <div>
-            <h2 className="text-base md:text-lg font-bold text-white tracking-wide">
+            <h2 className="text-base md:text-lg font-bold text-black tracking-wide">
               {sectionTitles[activeSection] || 'Flood Risk Analytics'}
             </h2>
-            <div className="flex items-center gap-2 text-xs text-slate-400">
+            <div className="flex items-center gap-2 text-xs text-gray-600">
               <span>Platform</span>
               <span>/</span>
-              <span className="text-[#2F5BFF] font-medium capitalize">{activeSection}</span>
+              <span className="text-black font-medium capitalize">{activeSection}</span>
             </div>
           </div>
         </div>
@@ -42,12 +42,12 @@ export default function Topbar({ activeSection, setActiveSection, collapsed, set
         {/* Right Side: Status Badges & Quick Action */}
         <div className="flex items-center gap-3 md:gap-4">
           {/* Backend Status Pill */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-white/10 text-xs">
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/10 text-xs">
             <span className="relative flex h-2 w-2">
               <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isLiveApi ? 'bg-emerald-400' : 'bg-amber-400'}`}></span>
               <span className={`relative inline-flex rounded-full h-2 w-2 ${isLiveApi ? 'bg-emerald-500' : 'bg-amber-500'}`}></span>
             </span>
-            <span className="text-slate-300 font-mono text-[11px]">
+            <span className="text-black font-mono text-[11px]">
               {isLiveApi ? 'FastAPI Connected' : 'Mock Engine (Offline)'}
             </span>
           </div>
@@ -56,9 +56,9 @@ export default function Topbar({ activeSection, setActiveSection, collapsed, set
           {activeSection !== 'prediction' && (
             <button
               onClick={() => setActiveSection('prediction')}
-              className="flex items-center gap-2 px-3.5 py-1.5 md:px-4 md:py-2 rounded-xl bg-gradient-to-r from-[#2F5BFF] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold text-xs md:text-sm shadow-lg shadow-blue-500/25 transition-all duration-200 active:scale-95 border border-blue-400/30"
+              className="flex items-center gap-2 px-3.5 py-1.5 md:px-4 md:py-2 rounded-xl bg-gradient-to-r from-black to-black hover:from-black hover:to-black text-white font-semibold text-xs md:text-sm shadow-lg shadow-black/10 transition-all duration-200 active:scale-95 border border-black/30"
             >
-              <Zap size={16} className="fill-current text-[#FFD600]" />
+              <Zap size={16} className="fill-current text-black" />
               <span>Predict Risk</span>
             </button>
           )}
@@ -67,3 +67,5 @@ export default function Topbar({ activeSection, setActiveSection, collapsed, set
     </header>
   );
 }
+
+

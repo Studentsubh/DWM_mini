@@ -145,7 +145,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-slate-100 selection:bg-[#2F5BFF] selection:text-white relative font-sans">
+    <div className="min-h-screen bg-white text-black selection:bg-black selection:text-white relative font-sans">
       {/* Toast Notification Container */}
       <Toast toast={toast} onClose={() => setToast(null)} />
 
@@ -184,7 +184,7 @@ export default function App() {
       <main className={`transition-all duration-300 p-4 md:p-8 min-h-[calc(100vh-4rem)] ${
         sidebarCollapsed ? 'md:ml-20' : 'md:ml-64'
       }`}>
-        <Suspense fallback={<div className="text-sm text-slate-400">Loading dashboard section…</div>}>
+        <Suspense fallback={<div className="text-sm text-gray-600">Loading dashboard section…</div>}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSection}
@@ -279,3 +279,6 @@ export default function App() {
     </div>
   );
 }
+
+
+

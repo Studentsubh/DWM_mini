@@ -33,21 +33,21 @@ export default function ModelComparison({ models, datasetInfo }) {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-white/10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-black/10">
         <div>
-          <h3 className="text-xl font-bold text-white tracking-wide">Model Metric Comparison Matrix</h3>
-          <p className="text-xs text-slate-400">Evaluate training vs testing performance, residual error metrics, and inference benchmarks.</p>
+          <h3 className="text-xl font-bold text-black tracking-wide">Model Metric Comparison Matrix</h3>
+          <p className="text-xs text-gray-600">Evaluate training vs testing performance, residual error metrics, and inference benchmarks.</p>
         </div>
 
         {/* Training / Testing Toggle Switch */}
-        <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-900 border border-white/10 text-xs">
-          <span className="text-slate-400 px-2 font-mono">Dataset Split:</span>
+        <div className="flex items-center gap-2 p-1.5 rounded-xl bg-white border border-black/10 text-xs">
+          <span className="text-gray-600 px-2 font-mono">Dataset Split:</span>
           <button
             onClick={() => setMetricMode('Training')}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
               metricMode === 'Training'
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-black text-white shadow-md'
+                : 'text-gray-600 hover:text-black'
             }`}
           >
             Training Set
@@ -56,8 +56,8 @@ export default function ModelComparison({ models, datasetInfo }) {
             onClick={() => setMetricMode('Testing')}
             className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
               metricMode === 'Testing'
-                ? 'bg-[#FFD600] text-black shadow-md'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-black text-white shadow-md'
+                : 'text-gray-600 hover:text-black'
             }`}
           >
             Testing Set (Holdout)
@@ -67,34 +67,34 @@ export default function ModelComparison({ models, datasetInfo }) {
 
       {/* Training & Testing Statistics Cards (Driven by config file) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center neo-stat-box">
-          <span className="text-[11px] font-bold text-slate-400 uppercase block mb-1">Top Training R²</span>
-          <div className="text-2xl font-black text-blue-400">{bestModel?.metrics?.train_r2 ?? 0.942}</div>
+        <div className="p-4 rounded-2xl bg-white border border-black/10 text-center neo-stat-box">
+          <span className="text-[11px] font-bold text-gray-600 uppercase block mb-1">Top Training R²</span>
+          <div className="text-2xl font-black text-black">{bestModel?.metrics?.train_r2 ?? 0.942}</div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center neo-stat-box">
-          <span className="text-[11px] font-bold text-slate-400 uppercase block mb-1">Top Testing R²</span>
-          <div className="text-2xl font-black text-[#FFD600]">{bestModel?.metrics?.test_r2 ?? 0.912}</div>
+        <div className="p-4 rounded-2xl bg-white border border-black/10 text-center neo-stat-box">
+          <span className="text-[11px] font-bold text-gray-600 uppercase block mb-1">Top Testing R²</span>
+          <div className="text-2xl font-black text-black">{bestModel?.metrics?.test_r2 ?? 0.912}</div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center neo-stat-box">
-          <span className="text-[11px] font-bold text-slate-400 uppercase block mb-1">Lowest RMSE</span>
+        <div className="p-4 rounded-2xl bg-white border border-black/10 text-center neo-stat-box">
+          <span className="text-[11px] font-bold text-gray-600 uppercase block mb-1">Lowest RMSE</span>
           <div className="text-2xl font-black text-emerald-400">{bestModel?.metrics?.rmse ?? 3.75}</div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center neo-stat-box">
-          <span className="text-[11px] font-bold text-slate-400 uppercase block mb-1">Lowest MAE</span>
+        <div className="p-4 rounded-2xl bg-white border border-black/10 text-center neo-stat-box">
+          <span className="text-[11px] font-bold text-gray-600 uppercase block mb-1">Lowest MAE</span>
           <div className="text-2xl font-black text-purple-400">{bestModel?.metrics?.mae ?? 2.41}</div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center neo-stat-box">
-          <span className="text-[11px] font-bold text-slate-400 uppercase block mb-1">Train Samples</span>
-          <div className="text-2xl font-black text-slate-200">{(datasetInfo?.train_samples || 8450).toLocaleString()}</div>
+        <div className="p-4 rounded-2xl bg-white border border-black/10 text-center neo-stat-box">
+          <span className="text-[11px] font-bold text-gray-600 uppercase block mb-1">Train Samples</span>
+          <div className="text-2xl font-black text-black">{(datasetInfo?.train_samples || 8450).toLocaleString()}</div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 text-center neo-stat-box">
-          <span className="text-[11px] font-bold text-slate-400 uppercase block mb-1">Test Samples</span>
-          <div className="text-2xl font-black text-slate-200">{(datasetInfo?.test_samples || 2112).toLocaleString()}</div>
+        <div className="p-4 rounded-2xl bg-white border border-black/10 text-center neo-stat-box">
+          <span className="text-[11px] font-bold text-gray-600 uppercase block mb-1">Test Samples</span>
+          <div className="text-2xl font-black text-black">{(datasetInfo?.test_samples || 2112).toLocaleString()}</div>
         </div>
       </div>
 
@@ -103,10 +103,10 @@ export default function ModelComparison({ models, datasetInfo }) {
         {/* Performance Score Bar Chart */}
         <div className="lg:col-span-7 glass-panel p-5 rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
-              <BarChart3 size={18} className="text-[#2F5BFF]" /> {metricMode} Score Comparison (R² / Accuracy)
+            <h4 className="text-sm font-bold text-black tracking-wide flex items-center gap-2">
+              <BarChart3 size={18} className="text-black" /> {metricMode} Score Comparison (R² / Accuracy)
             </h4>
-            <span className="text-xs font-mono text-[#FFD600]">Higher is Better ↑</span>
+            <span className="text-xs font-mono text-black">Higher is Better ↑</span>
           </div>
 
           <div className="h-72 w-full">
@@ -128,8 +128,8 @@ export default function ModelComparison({ models, datasetInfo }) {
         {/* Error Metrics Comparison Bar Chart */}
         <div className="lg:col-span-5 glass-panel p-5 rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
-              <TrendingUp size={18} className="text-[#FFD600]" /> Residual Error (RMSE vs MAE)
+            <h4 className="text-sm font-bold text-black tracking-wide flex items-center gap-2">
+              <TrendingUp size={18} className="text-black" /> Residual Error (RMSE vs MAE)
             </h4>
             <span className="text-xs font-mono text-emerald-400">Lower is Better ↓</span>
           </div>
@@ -154,11 +154,11 @@ export default function ModelComparison({ models, datasetInfo }) {
 
       {/* Summary Table */}
       <div className="glass-panel p-6 rounded-3xl space-y-4">
-        <h4 className="text-sm font-bold text-white tracking-wide">Detailed Model Specification Table</h4>
+        <h4 className="text-sm font-bold text-black tracking-wide">Detailed Model Specification Table</h4>
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-300 border-collapse">
+          <table className="w-full text-left text-xs text-black border-collapse">
             <thead>
-              <tr className="border-b border-white/10 text-slate-400 font-mono text-[11px] uppercase">
+              <tr className="border-b border-black/10 text-gray-600 font-mono text-[11px] uppercase">
                 <th className="py-3 px-3">Model Name</th>
                 <th className="py-3 px-3">Algorithm</th>
                 <th className="py-3 px-3">Type</th>
@@ -172,19 +172,19 @@ export default function ModelComparison({ models, datasetInfo }) {
             </thead>
             <tbody className="divide-y divide-white/5 font-mono">
               {models.map(m => (
-                <tr key={m.id} className="hover:bg-slate-800/40 transition-colors">
-                  <td className="py-3 px-3 font-bold text-white font-sans">{m.name}</td>
-                  <td className="py-3 px-3 text-slate-400">{m.algorithm}</td>
+                <tr key={m.id} className="hover:bg-white transition-colors">
+                  <td className="py-3 px-3 font-bold text-black font-sans">{m.name}</td>
+                  <td className="py-3 px-3 text-gray-600">{m.algorithm}</td>
                   <td className="py-3 px-3">
-                    <span className={`px-2 py-0.5 rounded text-[10px] ${m.type === 'Regression' ? 'bg-blue-500/20 text-blue-400' : 'bg-purple-500/20 text-purple-400'}`}>
+                    <span className={`px-2 py-0.5 rounded text-[10px] ${m.type === 'Regression' ? 'bg-black text-white' : 'bg-purple-500/20 text-purple-400'}`}>
                       {m.type}
                     </span>
                   </td>
-                  <td className="py-3 px-3 text-blue-400 font-bold">{m.metrics?.train_r2 ?? m.metrics?.train_accuracy}</td>
-                  <td className="py-3 px-3 text-[#FFD600] font-bold">{m.metrics?.test_r2 ?? m.metrics?.test_accuracy}</td>
+                  <td className="py-3 px-3 text-black font-bold">{m.metrics?.train_r2 ?? m.metrics?.train_accuracy}</td>
+                  <td className="py-3 px-3 text-black font-bold">{m.metrics?.test_r2 ?? m.metrics?.test_accuracy}</td>
                   <td className="py-3 px-3 text-emerald-400">{m.metrics?.rmse ?? 'N/A'}</td>
                   <td className="py-3 px-3 text-purple-400">{m.metrics?.mae ?? 'N/A'}</td>
-                  <td className="py-3 px-3 text-slate-400">{m.metrics?.training_time_sec}s</td>
+                  <td className="py-3 px-3 text-gray-600">{m.metrics?.training_time_sec}s</td>
                   <td className="py-3 px-3">
                     <span className="text-emerald-400 font-bold">✓ Trained</span>
                   </td>
@@ -197,3 +197,5 @@ export default function ModelComparison({ models, datasetInfo }) {
     </div>
   );
 }
+
+

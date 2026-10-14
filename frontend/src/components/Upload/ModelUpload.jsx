@@ -55,21 +55,21 @@ export default function ModelUpload({ onUploadModel }) {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       {/* Header */}
-      <div className="pb-2 border-b border-white/10">
-        <h3 className="text-xl font-bold text-white tracking-wide">Model Upload & Colab Integration Manager</h3>
-        <p className="text-xs text-slate-400">Register trained models from Google Colab or local scripts into the dashboard registry.</p>
+      <div className="pb-2 border-b border-black/10">
+        <h3 className="text-xl font-bold text-black tracking-wide">Model Upload & Colab Integration Manager</h3>
+        <p className="text-xs text-gray-600">Register trained models from Google Colab or local scripts into the dashboard registry.</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="glass-panel p-6 md:p-8 rounded-3xl space-y-6 border border-white/10">
+      <form onSubmit={handleSubmit} className="glass-panel p-6 md:p-8 rounded-3xl space-y-6 border border-black/10">
         {/* Supported Formats Banner */}
-        <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-xs text-slate-300 flex items-center justify-between">
+        <div className="p-4 rounded-2xl bg-black border border-black/20 text-xs text-black flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Cpu className="w-5 h-5 text-[#2F5BFF]" />
+            <Cpu className="w-5 h-5 text-black" />
             <span>Supported Model Formats:</span>
           </div>
           <div className="flex gap-1.5 font-mono">
             {['.pkl', '.joblib', '.pt', '.h5', '.keras'].map(ext => (
-              <span key={ext} className="px-2 py-0.5 rounded bg-slate-900 text-[#FFD600] font-bold border border-slate-700">
+              <span key={ext} className="px-2 py-0.5 rounded bg-white text-black font-bold border border-slate-700">
                 {ext}
               </span>
             ))}
@@ -78,8 +78,8 @@ export default function ModelUpload({ onUploadModel }) {
 
         {/* Drag & Drop File Zone */}
         <div className="space-y-2">
-          <label className="text-xs font-bold text-slate-300 block">1. Model File Upload</label>
-          <div className="relative border-2 border-dashed border-slate-700 hover:border-[#2F5BFF] rounded-2xl p-8 text-center transition-all bg-slate-950/40">
+          <label className="text-xs font-bold text-black block">1. Model File Upload</label>
+          <div className="relative border-2 border-dashed border-slate-700 hover:border-[#2F5BFF] rounded-2xl p-8 text-center transition-all bg-white">
             <input
               type="file"
               onChange={handleFileChange}
@@ -87,13 +87,13 @@ export default function ModelUpload({ onUploadModel }) {
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             />
             <div className="space-y-2 pointer-events-none">
-              <div className="w-12 h-12 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-[#2F5BFF]">
+              <div className="w-12 h-12 mx-auto rounded-2xl bg-black border border-black/30 flex items-center justify-center text-black">
                 <Upload size={24} />
               </div>
-              <div className="text-sm font-bold text-white">
+              <div className="text-sm font-bold text-black">
                 {selectedFile ? selectedFile.name : 'Click or Drag & Drop Colab Model File Here'}
               </div>
-              <p className="text-xs text-slate-400 font-mono">
+              <p className="text-xs text-gray-600 font-mono">
                 {selectedFile ? `${(selectedFile.size / 1024).toFixed(1)} KB` : 'Max size 50MB (.pkl, .joblib, .pt, .h5, .keras)'}
               </p>
             </div>
@@ -102,10 +102,10 @@ export default function ModelUpload({ onUploadModel }) {
 
         {/* Model Spec Form Inputs */}
         <div className="space-y-4 pt-2">
-          <label className="text-xs font-bold text-slate-300 block">2. Model Metadata & Performance Metrics</label>
+          <label className="text-xs font-bold text-black block">2. Model Metadata & Performance Metrics</label>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <span className="text-xs text-slate-400 font-medium">Model Name</span>
+              <span className="text-xs text-gray-600 font-medium">Model Name</span>
               <input
                 type="text"
                 placeholder="e.g. Random Forest Regressor v2"
@@ -117,7 +117,7 @@ export default function ModelUpload({ onUploadModel }) {
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-slate-400 font-medium">Algorithm Name</span>
+              <span className="text-xs text-gray-600 font-medium">Algorithm Name</span>
               <input
                 type="text"
                 placeholder="e.g. Random Forest (200 Trees)"
@@ -129,11 +129,11 @@ export default function ModelUpload({ onUploadModel }) {
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-slate-400 font-medium">Problem Type</span>
+              <span className="text-xs text-gray-600 font-medium">Problem Type</span>
               <select
                 value={modelType}
                 onChange={(e) => setModelType(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl glass-input text-sm bg-slate-900"
+                className="w-full px-3.5 py-2 rounded-xl glass-input text-sm bg-white"
               >
                 <option value="Regression">Regression (flood_risk_score)</option>
                 <option value="Classification">Classification (flood_warning_level)</option>
@@ -141,7 +141,7 @@ export default function ModelUpload({ onUploadModel }) {
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-slate-400 font-medium">Testing R² / Accuracy Score</span>
+              <span className="text-xs text-gray-600 font-medium">Testing R² / Accuracy Score</span>
               <input
                 type="number"
                 step="0.001"
@@ -149,12 +149,12 @@ export default function ModelUpload({ onUploadModel }) {
                 max="1"
                 value={testR2}
                 onChange={(e) => setTestR2(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl glass-input text-sm font-mono font-bold text-[#FFD600]"
+                className="w-full px-3.5 py-2 rounded-xl glass-input text-sm font-mono font-bold text-black"
               />
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-slate-400 font-medium">Training R² Score</span>
+              <span className="text-xs text-gray-600 font-medium">Training R² Score</span>
               <input
                 type="number"
                 step="0.001"
@@ -167,7 +167,7 @@ export default function ModelUpload({ onUploadModel }) {
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-slate-400 font-medium">RMSE Score</span>
+              <span className="text-xs text-gray-600 font-medium">RMSE Score</span>
               <input
                 type="number"
                 step="0.01"
@@ -193,7 +193,7 @@ export default function ModelUpload({ onUploadModel }) {
           <button
             type="submit"
             disabled={isUploading}
-            className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-[#2F5BFF] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold text-sm shadow-xl shadow-blue-500/30 transition-all border border-blue-400/30 disabled:opacity-50"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-black to-black hover:from-black hover:to-black text-white font-bold text-sm shadow-xl shadow-black/10 transition-all border border-black/30 disabled:opacity-50"
           >
             <Plus size={18} />
             <span>{isUploading ? 'Registering Model...' : 'Upload & Register Model'}</span>
@@ -203,3 +203,5 @@ export default function ModelUpload({ onUploadModel }) {
     </div>
   );
 }
+
+

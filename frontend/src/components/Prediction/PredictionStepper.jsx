@@ -12,38 +12,38 @@ const STEPS = [
 
 export default function PredictionStepper({ currentStep, totalProgress }) {
   return (
-    <div className="glass-panel rounded-3xl p-8 max-w-xl mx-auto my-8 border border-blue-500/30 text-center space-y-6 shadow-2xl">
+    <div className="glass-panel rounded-3xl p-8 max-w-xl mx-auto my-8 border border-black/30 text-center space-y-6 shadow-2xl">
       <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
           className="absolute inset-0 rounded-full border-4 border-t-[#2F5BFF] border-r-[#FFD600] border-b-blue-900 border-l-slate-800"
         />
-        <Cpu className="w-8 h-8 text-[#FFD600] animate-pulse" />
+        <Cpu className="w-8 h-8 text-black animate-pulse" />
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-xl font-bold text-white tracking-wide">
+        <h3 className="text-xl font-bold text-black tracking-wide">
           {STEPS[currentStep] || 'Evaluating Input...'}
         </h3>
-        <p className="text-xs text-slate-400 font-mono">
+        <p className="text-xs text-gray-600 font-mono">
           Model execution step {currentStep + 1} of {STEPS.length}
         </p>
       </div>
 
       {/* Progress Bar */}
       <div className="space-y-2">
-        <div className="w-full bg-slate-900 rounded-full h-3 border border-white/10 overflow-hidden">
+        <div className="w-full bg-white rounded-full h-3 border border-black/10 overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${totalProgress}%` }}
             transition={{ duration: 0.3 }}
-            className="h-full bg-gradient-to-r from-[#2F5BFF] via-blue-400 to-[#FFD600] rounded-full"
+            className="h-full bg-gradient-to-r from-black via-blue-400 to-[#FFD600] rounded-full"
           />
         </div>
-        <div className="flex justify-between text-[11px] font-mono text-slate-400">
+        <div className="flex justify-between text-[11px] font-mono text-gray-600">
           <span>0%</span>
-          <span className="text-[#FFD600] font-bold">{Math.round(totalProgress)}%</span>
+          <span className="text-black font-bold">{Math.round(totalProgress)}%</span>
           <span>100%</span>
         </div>
       </div>
@@ -60,8 +60,8 @@ export default function PredictionStepper({ currentStep, totalProgress }) {
                 isDone
                   ? 'bg-emerald-500'
                   : isCurrent
-                  ? 'bg-[#FFD600] animate-pulse'
-                  : 'bg-slate-800'
+                  ? 'bg-black animate-pulse'
+                  : 'bg-white'
               }`}
             />
           );
@@ -70,3 +70,5 @@ export default function PredictionStepper({ currentStep, totalProgress }) {
     </div>
   );
 }
+
+
